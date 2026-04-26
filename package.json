@@ -1,0 +1,25 @@
+{
+  "name": "atcoder-zip-link",
+  "version": "1.0.0",
+  "author": "e6nlaq",
+  "devDependencies": {
+    "@biomejs/biome": "2.4.13",
+    "@commitlint/cli": "^20.5.2",
+    "@commitlint/config-conventional": "^20.5.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.3",
+    "vite-plugin-monkey": "^7.1.1"
+  },
+  "description": "user-script template",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "prepare": "husky"
+  },
+  "type": "module"
+}
