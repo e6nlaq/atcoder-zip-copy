@@ -1,5 +1,5 @@
 {
-  "name": "atcoder-zip-link",
+  "name": "atcoder-zip-copy",
   "version": "1.0.0",
   "author": "e6nlaq",
   "devDependencies": {
@@ -12,7 +12,7 @@
     "vite": "^7.1.3",
     "vite-plugin-monkey": "^7.1.1"
   },
-  "description": "user-script template",
+  "description": "AtCoderの問題文中の .zip リンクの横にコピーボタンを追加する",
   "license": "MIT",
   "private": true,
   "scripts": {

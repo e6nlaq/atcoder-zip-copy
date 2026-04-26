@@ -7,11 +7,11 @@ export default defineConfig({
         monkey({
             entry: "src/main.ts",
             userscript: {
-                namespace: "https://github.com/e6nlaq/atcoder-zip-link",
+                namespace: "https://github.com/e6nlaq/atcoder-zip-copy",
                 match: ["https://atcoder.jp/contests/*/tasks/*"],
-                name: "AtCoder Zip Link Copy Button",
+                name: "AtCoder Zip Copy",
                 description:
-                    "Add a copy button next to .zip links in AtCoder problem statements.",
+                    "AtCoderの問題文中の .zip リンクの横にコピーボタンを追加します。",
                 grant: [],
                 author: "e6nlaq",
                 copyright: "(C) 2026 e6nlaq",
