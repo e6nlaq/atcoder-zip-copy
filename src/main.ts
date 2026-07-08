@@ -1,3 +1,25 @@
+/**
+ * URL文字列からクエリパラメータ（searchParams）のみを削除する
+ * @param {string} href - 対象のURL文字列（絶対パス・相対パス両対応）
+ * @returns {string} パラメータが削除されたURL
+ */
+function removeSearchParams(href: string) {
+    try {
+        // 絶対URLの場合
+        const url = new URL(href);
+        url.search = "";
+        return url.toString();
+    } catch (_e) {
+        // 相対パスの場合（ダミーのベースURLを設定してパース）
+        const dummyBase = "https://example.com";
+        const url = new URL(href, dummyBase);
+        url.search = "";
+
+        // ダミーのベースURLを除いた部分（パス + ハッシュ）を返す
+        return url.pathname + url.hash;
+    }
+}
+
 function init() {
     const taskStatement = document.getElementById("task-statement");
     if (!taskStatement) return;
@@ -15,13 +37,18 @@ function init() {
 
             btn.addEventListener("click", (e) => {
                 e.preventDefault();
-                navigator.clipboard.writeText(link.href).then(() => {
-                    const originalText = btn.textContent;
-                    btn.textContent = "Copied!";
-                    setTimeout(() => {
-                        btn.textContent = originalText;
-                    }, 1000);
-                });
+                navigator.clipboard
+                    .writeText(removeSearchParams(link.href))
+                    .then(() => {
+                        const originalText = btn.textContent;
+                        btn.textContent = "Copied!";
+                        setTimeout(() => {
+                            btn.textContent = originalText;
+                        }, 1000);
+                    })
+                    .catch((err: unknown) => {
+                        console.error("Failed to copy text: ", err);
+                    });
             });
 
             // Insert button after the link
